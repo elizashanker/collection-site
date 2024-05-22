@@ -28,28 +28,34 @@ def admin():
             filename = secure_filename(image.filename)
             image.save(os.path.join('static\img', filename))
             object.photos += f";{filename};"
+        print(object.photos)
 
         object.series_id = form.series_id.data
         db_sess.add(object)
         db_sess.commit()
-        return redirect("/")
+        return redirect("/admin")
 
     return render_template("admin.html", form=form)
 
 
 @app.route('/')
 def missia():
-    news = {
-            "title": "Сегодня хорошая погода",
-            "content": "Невероятно, сегодня хорошая погода"
-        }
     return render_template('index.html')
 
 
 @app.route("/objects")
 def deviz():
-    objects = [1, 2, 3, 4, 5, 6]
+    db_sess = db_session.create_session()
+    objects = db_sess.query(Object).all()
+    print(objects)
     return render_template("objects.html", objects=objects)
+
+@app.route("/about<int:id>")
+def about_object(id):
+    db_sess = db_session.create_session()
+    object = db_sess.query(Object).filter(Object.id == id).first()
+    print(object)
+    return render_template("about_object.html", object=object)
 
 
 if __name__ == '__main__':

@@ -7,11 +7,14 @@
         {% for x in objects %}
         <div class="col-6" id="col">
             <div class="card" style="width: 50%rem;">
-                <img src="data/IMG_6532.jpeg" class="card-img-top" alt="...">
+                <img src='/static/img/{{ x.photos.split(";")[1] }}' class="card-img-top" alt='../static/img/{{ x.photos.split(";")[1] }}'>
                 <div class="card-body">
-                    <h5 class="card-title">Дядя с сигой</h5>
-                    <p class="card-text">Автор. Год. Место. Материалы.</p>
-                    <a href="about_object.html" class="btn btn-primary">Подбробнее</a>
+                    <h5 class="card-title">{{ x.title }}</h5>
+                    <p class="card-text">{{ x.author_id }}
+                        {{ x.creation_year }}
+                        {{ x.creation_place }}
+                        {{ x.materials }}</p>
+                    <a href="/about{{ x.id }}" class="btn btn-primary">Подробнее</a>
                 </div>
             </div>
         </div>

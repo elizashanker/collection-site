@@ -12,7 +12,7 @@ class AdminForm(FlaskForm):
     creation_place = StringField("Место создания")
     collection_history = TextAreaField("История попадания в коллекцию")
     materials = StringField("Материалы")
-    photos = MultipleFileField("Фото")
+    photos = MultipleFileField("Фото", validators=[FileAllowed(['jpg', 'png', "jpeg"], 'Images only!')])
     series_id = IntegerField('Айди автора')
 
     submit = SubmitField('Добавить')
