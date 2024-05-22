@@ -1,0 +1,24 @@
+:root {
+    --color1: #d3b87e;
+    --color2: #821919;
+}
+
+#main {
+    padding: 300px 0;
+}
+
+#main {
+    background: var(--color1)
+}
+
+#about{
+    text-align: center
+}
+
+#about{
+    padding: 50px 0;
+}
+
+#col{
+   padding: 20px 20px;
+}

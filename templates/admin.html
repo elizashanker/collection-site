@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center">
+<h1>Добавление нового обьекта</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.title.label }}<br>
+        {{ form.title(class="form-control") }}<br>
+        {% for error in form.title.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.author_id.label }}<br>
+        {{ form.author_id(class="form-control") }}<br>
+        {% for error in form.author_id.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.creation_year.label }}<br>
+        {{ form.creation_year(class="form-control") }}<br>
+        {% for error in form.creation_year.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.creation_history.label }}<br>
+        {{ form.creation_history(class="form-control") }}<br>
+        {% for error in form.creation_history.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.creation_place.label }}<br>
+        {{ form.creation_place(class="form-control") }}<br>
+        {% for error in form.creation_place.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.collection_history.label }}<br>
+        {{ form.collection_history(class="form-control") }}<br>
+        {% for error in form.collection_history.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.materials.label }}<br>
+        {{ form.materials(class="form-control") }}<br>
+        {% for error in form.materials.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.photos.label }}<br>
+        {{ form.photos }}<br>
+        {% for error in form.photos.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.series_id.label }}<br>
+        {{ form.series_id(class="form-control") }}<br>
+        {% for error in form.series_id.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+</div>
+{% endblock %}

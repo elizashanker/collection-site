@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container text-center">
+    <div class="row align-items-start">
+        {% for x in objects %}
+        <div class="col-6" id="col">
+            <div class="card" style="width: 50%rem;">
+                <img src="data/IMG_6532.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Дядя с сигой</h5>
+                    <p class="card-text">Автор. Год. Место. Материалы.</p>
+                    <a href="about_object.html" class="btn btn-primary">Подбробнее</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
