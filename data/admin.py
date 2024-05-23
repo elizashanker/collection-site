@@ -6,13 +6,13 @@ from wtforms.validators import DataRequired
 
 class AdminForm(FlaskForm):
     title = StringField("Название")
-    author_id = IntegerField('Айди автора')
+    author_id = StringField('Айди автора')
     creation_year = IntegerField('Год создания')
     creation_history = TextAreaField("История создания")
     creation_place = StringField("Место создания")
     collection_history = TextAreaField("История попадания в коллекцию")
     materials = StringField("Материалы")
-    photos = MultipleFileField("Фото", validators=[FileAllowed(['jpg', 'png', "jpeg"], 'Images only!')])
-    series_id = IntegerField('Айди автора')
+    photos = MultipleFileField("Фото")
+    series_id = StringField('Айди автора')
 
     submit = SubmitField('Добавить')

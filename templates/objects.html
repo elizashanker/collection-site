@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
 <div class="container text-center">
     <div class="row align-items-start">
         {% for x in objects %}
         <div class="col-6" id="col">
-            <div class="card" style="width: 50%rem;">
-                <img src='/static/img/{{ x.photos.split(";")[1] }}' class="card-img-top" alt='../static/img/{{ x.photos.split(";")[1] }}'>
+            <div class="card box" style="width: 50%rem;">
+                <img src='/static/img/{{ x.photos.split(";")[0] }}' class="card-img-top" alt='../static/img/{{ x.photos.split(";")[1] }}'>
                 <div class="card-body">
                     <h5 class="card-title">{{ x.title }}</h5>
-                    <p class="card-text">{{ x.author_id }}
-                        {{ x.creation_year }}
-                        {{ x.creation_place }}
-                        {{ x.materials }}</p>
-                    <a href="/about{{ x.id }}" class="btn btn-primary">Подробнее</a>
+                    <p class="card-text">{{ x.author_id }}.
+                        {{ x.creation_year }}.
+                        {{ x.creation_place }}.
+                        {{ x.materials }}.</p>
+                    <a href="/about{{ x.id }}" class="btn btn-light" style="background: #d3b87e; hover: #fff">Подробнее</a>
                 </div>
             </div>
         </div>

@@ -4,12 +4,15 @@ from data.admin import AdminForm
 from data.users import Object
 from werkzeug.utils import secure_filename
 import os
+import requests
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '775664a9b6ace72dedb42f592cb19a2789935126497200fc1aee8eb2a12d23b9'
 
+
 @app.route("/admin", methods=["GET", "POST"])
 def admin():
+    global FILE
     form = AdminForm()
     if form.validate_on_submit():
         db_sess = db_session.create_session()
@@ -24,10 +27,12 @@ def admin():
         object.materials = form.materials.data
         object.photos = ""
 
+        i = 0
         for image in form.photos.data:
-            filename = secure_filename(image.filename)
+            filename =f"{object.title}-{i}.jpeg"
             image.save(os.path.join('static\img', filename))
-            object.photos += f";{filename};"
+            object.photos += f"{filename};"
+            i += 1
         print(object.photos)
 
         object.series_id = form.series_id.data
