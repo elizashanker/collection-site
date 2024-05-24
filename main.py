@@ -47,19 +47,21 @@ def admin():
 def missia():
     return render_template('index.html')
 
+@app.route('/3D')
+def three():
+    return render_template('3d.html')
+
 
 @app.route("/objects")
 def deviz():
     db_sess = db_session.create_session()
     objects = db_sess.query(Object).all()
-    print(objects)
     return render_template("objects.html", objects=objects)
 
 @app.route("/about<int:id>")
 def about_object(id):
     db_sess = db_session.create_session()
     object = db_sess.query(Object).filter(Object.id == id).first()
-    print(object)
     return render_template("about_object.html", object=object)
 
 

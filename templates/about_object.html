@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container text-center">
-    <div class="row align-items-start">
-        <div class="col-8">
-            <div class="card">
-                <div class="card-body">
+<p></p>
+<div class="container-fluid">
+
+            <div class="row align-items-start">
+                <div class="col-6">
                     <div id="carouselExample" class="carousel slide">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src='/static/img/{{ object.photos.split(";")[0] }}' class="d-block w-100" alt="...">
+                                <img src='/static/img/{{ object.photos.split(";")[0] }}' class="d-block w-100"
+                                     alt="...">
                             </div>
                             {% for photo in object.photos.split(";")[1:] %}
                             {% if photo != "" %}
@@ -30,11 +31,8 @@
                             <span class="visually-hidden">Следующий</span>
                         </button>
                     </div>
-                </div>
-            </div>
-
         </div>
-        <div class="col-4">
+        <div class="col-6">
             <h1>{{ object.title }}</h1>
             <h5>{{ object.author_id }}. {{ object.creation_year }} год.</h5>
             <h5>{{ object.creation_place }}. Из Серии "{{ object.series_id }}".</h5>
@@ -70,11 +68,13 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                data-bs-target="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree">
                             <strong>Об авторе</strong>
                         </button>
                     </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div id="collapseThree" class="accordion-collapse collapse"
+                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             {{ object.author_id }}
                         </div>
@@ -83,6 +83,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 
